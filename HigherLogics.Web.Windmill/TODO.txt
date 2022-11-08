@@ -1,9 +1,10 @@
 ﻿# TODO
 
- * search bar and avatar top bar
  * login page
  * password recovery page
- * 
+ * review whether separate tag helpers are the way to do this, or whether
+   I should add a custom attribuge for windmill-role which basically just adds the
+   relevant styling, ie. <aside windmill-role="sidebar"> ... </aside>
 
 # Caveats
 
