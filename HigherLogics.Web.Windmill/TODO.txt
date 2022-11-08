@@ -1,0 +1,10 @@
+﻿# TODO
+
+ * search bar and avatar top bar
+ * login page
+ * password recovery page
+ * 
+
+# Caveats
+
+ * due to razor syntax, you have to use Alpine's x-on:event for attributes rather than the short-hand @event

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blank - Windmill Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+            defer></script>
+    <script src="../assets/js/init-alpine.js"></script>
+</head>
+<body>
+    <windmill-container>
+        <windmill-sidebar>
+            <windmill-sidebar-header></windmill-sidebar-header>
+            <windmill-sidebar-link active="?" href="?">...</windmill-sidebar-link>
+            <!-- add as many links or menus as needed-->
+            <windmill-sidebar-menu>
+                <windmill-sidebar-menu-title>Pages</windmill-sidebar-menu-title>
+                <windmill-sidebar-menu-list>
+                    <windmill-sidebar-menu-link href="?">Login</windmill-sidebar-menu-link>
+                    <!-- add as many as needed-->
+                </windmill-sidebar-menu-list>
+            </windmill-sidebar-menu>
+        </windmill-sidebar>
+        <windmill-header>
+            <windmill-search placeholder="search"></windmill-search>
+            <windmill-action-list>
+                <windmill-action>
+                    <windmill-toggle-theme></windmill-toggle-theme>
+                </windmill-action>
+                <windmill-action>
+                    <windmill-action-icon><windmill-action-badge></windmill-action-badge></windmill-action-icon>
+                    <windmill-action-menu-list>
+                        <windmill-header-menu-link href="?" " extra="2">Messages</windmill-header-menu-link>
+                        <!-- add as many as needed -->
+                    </windmill-action-menu-list>
+                </windmill-action>
+            </windmill-action-list>
+        </windmill-header>
+        <windmill-main blank="true">
+            <!-- render your content -->
+        </windmill-main>
+    </windmill-container>
+</body>
+</html>
