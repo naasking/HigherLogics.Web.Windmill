@@ -4,6 +4,8 @@ namespace HigherLogics.Web.Windmill.Test.Models
 {
     public class ChartViewModel : GlobalViewModel
     {
-        public Chart Chart { get; set; }
+        public Chart Pie { get; set; }
+        public Chart Line { get; set; }
+        public Chart Bar { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using HigherLogics.Web.Windmill.Test.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Reflection.Emit;
 
 namespace HigherLogics.Web.Windmill.Test.Controllers
 {
@@ -52,7 +53,8 @@ namespace HigherLogics.Web.Windmill.Test.Controllers
 
         public IActionResult Charts()
         {
-            var chart = new Chart
+
+            var bar = new Chart
             {
                 Type = "bar",
                 Options = new ChartOptions { Responsive = true, Legend = new ChartLegend { Display = false } },
@@ -78,7 +80,74 @@ namespace HigherLogics.Web.Windmill.Test.Controllers
                     },
                 }
             };
-            return View(chart);
+            var line = new Chart
+            {
+                Type = "line",
+                Options = new ChartOptions
+                {
+                    Responsive = true,
+                    Legend = new ChartLegend { Display = false },
+                    Tooltips = new ChartPlugin { Mode = "index", Intersect = false },
+                    Hover = new ChartPlugin { Mode = "nearest", Intersect = true },
+                    Scales = new ChartScales
+                    {
+                        X = new ChartAxis { Display = true, DisplayLabel = true, Label = "Month" },
+                        Y = new ChartAxis { Display = true, DisplayLabel = true, Label = "Value" },
+                    },
+                },
+                Data = new ChartData
+                {
+                    Labels = new[] { "January", "February", "March", "April", "May", "June", "July" },
+                    Datasets = new[]
+                    {
+                        new ChartDataset
+                        {
+                            Label = "Organic",
+                            BackgroundColors = new[] { "#0694a2", },
+                            BorderColors = new[] { "#0694a2", },
+                            Data = new object[] { 43, 48, 40, 54, 67, 73, 70 },
+                            Fill = false,
+                        },
+                        new ChartDataset
+                        {
+                            Label = "Organic",
+                            BackgroundColors = new[] { "#7e3af2", },
+                            BorderColors = new[] { "#7e3af2", },
+                            Data = new object[] { 24, 50, 64, 74, 52, 51, 65 },
+                            Fill = false,
+                        },
+                    },
+                },
+            };
+            var pie = new Chart
+            {
+                Type = "doughnut",
+                Options = new ChartOptions
+                {
+                    Responsive = true,
+                    CutoutPercentage = 80,
+                    Legend = new ChartLegend { Display = false },
+                },
+                Data = new ChartData
+                {
+                    Labels = new[] { "Shoes", "Shirts", "Bags", },
+                    Datasets = new[]
+                    {
+                        new ChartDataset
+                        {
+                            Label = "Dataset 1",
+                            BackgroundColors = new[] { "#0694a2", "#1c64f2", "#7e3af2" },
+                            Data = new object[] { 33, 33, 33 },
+                        }
+                    },
+                },
+            };
+            return View(new ChartViewModel
+            {
+                Bar = bar,
+                Line = line,
+                Pie = pie,
+            });
         }
 
         public IActionResult Login()

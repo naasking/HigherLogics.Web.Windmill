@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 
@@ -50,23 +51,37 @@ namespace HigherLogics.Web.Chartjs
                 buf.Append("showLine:").Append(ShowLine.Value).Append(',');
             if (BorderColors != null)
             {
-                var mark = buf.Append("backgroundColor:[").Length;
-                foreach (var x in BorderColors)
-                    buf.Append('\'').Append(x).Append("',");
-                // remove trailing comma
-                if (buf.Length > mark)
-                    buf.Remove(buf.Length - 1, 1);
-                buf.AppendLine("],");
+                if (BorderColors.Count() == 1)
+                {
+                    buf.Append("borderColor:'").Append(BorderColors.Single()).Append("',");
+                }
+                else
+                {
+                    var mark = buf.Append("backgroundColor:[").Length;
+                    foreach (var x in BorderColors)
+                        buf.Append('\'').Append(x).Append("',");
+                    // remove trailing comma
+                    if (buf.Length > mark)
+                        buf.Remove(buf.Length - 1, 1);
+                    buf.AppendLine("],");
+                }
             }
             if (BackgroundColors != null)
             {
-                var mark = buf.Append("backgroundColor:[").Length;
-                foreach (var x in BackgroundColors)
-                    buf.Append('\'').Append(x).Append("',");
-                // remove trailing comma
-                if (buf.Length > mark)
-                    buf.Remove(buf.Length - 1, 1);
-                buf.AppendLine("],");
+                if (BackgroundColors.Count() == 1)
+                {
+                    buf.Append("backgroundColor:'").Append(BackgroundColors.Single()).Append("',");
+                }
+                else
+                {
+                    var mark = buf.Append("backgroundColor:[").Length;
+                    foreach (var x in BackgroundColors)
+                        buf.Append('\'').Append(x).Append("',");
+                    // remove trailing comma
+                    if (buf.Length > mark)
+                        buf.Remove(buf.Length - 1, 1);
+                    buf.AppendLine("],");
+                }
             }
             if (Data != null)
             {

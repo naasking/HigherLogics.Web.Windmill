@@ -21,7 +21,7 @@ namespace HigherLogics.Web.Windmill
         {
             output.TagName = "canvas";
             var id = output.Attributes["id"];
-            if (id == null)
+            if (id?.Value == null)
                 throw new ArgumentNullException("Chart must have an 'id' attribute assigned");
             output.PostElement.AppendHtml(Chart.ToScript(id.Value.ToString()));
             base.Process(context, output);

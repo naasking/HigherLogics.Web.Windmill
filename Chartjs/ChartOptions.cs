@@ -11,6 +11,8 @@ namespace HigherLogics.Web.Chartjs
         public bool Responsive { get; set; }
         public int? CutoutPercentage { get; set; }
         public ChartPlugin Tooltips { get; set; }
+        public ChartPlugin Hover { get; set; }
+        public ChartScales? Scales { get; set; }
 
         internal StringBuilder ToScript(StringBuilder buf)
         {
@@ -23,6 +25,7 @@ namespace HigherLogics.Web.Chartjs
                 buf.Append("legend:");
                 Legend.Value.ToScript(buf).Append(',');
             }
+            Scales?.ToScript(buf);
 
             // remove trailing comma
             buf.Remove(buf.Length - 1, 1);
