@@ -11,14 +11,22 @@ namespace HigherLogics.Web.Windmill
 {
     public class WindmillInputTagHelper : WindmillTagHelper
     {
-        public WindmillInputTagHelper() : base("block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input")
+        public WindmillInputTagHelper() : base("w-full text-sm focus:outline-none form-input dark:text-gray-300")
         {
         }
+
+        public string? Type { get; set; }
+
+        public HelpType ValidationState { get; set; }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            //FIXME: should add input group support, the way I did for buttons?
             output.TagName = "input";
-            if (!output.Attributes.TryGetAttribute("type", out var type))
-                output.Attributes.Add("type", "text");
+            if (string.IsNullOrEmpty(Type))
+                Type = "text";
+            output.Attributes.Add("type", Type);
+            BaseStyles += ValidationState.GetInputValidationClasses();
             base.Process(context, output);
         }
     }

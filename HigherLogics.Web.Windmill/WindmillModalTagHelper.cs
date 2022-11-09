@@ -31,7 +31,6 @@ namespace HigherLogics.Web.Windmill
             output.Attributes.AddDefault("x-transition:leave-start", "opacity-100");
             output.Attributes.AddDefault("x-transition:leave-end", "opacity-0");
 
-            //var content = ToString(output.GetChildContentAsync().Result, HtmlEncoder.Default);
             output.PreContent.AppendHtmlLine($@"
 <div x-show=""isModalOpen""
     x-transition:enter=""transition ease-out duration-150""

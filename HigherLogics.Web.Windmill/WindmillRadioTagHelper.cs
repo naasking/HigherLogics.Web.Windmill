@@ -23,12 +23,12 @@ namespace HigherLogics.Web.Windmill
             output.GetInputAttributes(out var name, out var value, out var disabled, out var required, out var readOnly, out var placeholder);
             output.RemoveAttribute("checked", out var checkd);
             output.Content.Clear();
-            output.Content.AppendHtml(@"<input type=""radio"" class=""text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray""");
+            output.Content.AppendHtml(@"<input type=""radio"" class=""text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray""");
 
             name?.CopyTo(output.Content);
             value?.CopyTo(output.Content);
             disabled?.CopyTo(output.Content);
-            checkd.CopyTo(output.Content);
+            checkd?.CopyTo(output.Content);
             readOnly?.CopyTo(output.Content);
             required?.CopyTo(output.Content);
             placeholder?.CopyTo(output.Content);

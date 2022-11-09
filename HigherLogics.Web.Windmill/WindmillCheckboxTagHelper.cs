@@ -28,7 +28,7 @@ namespace HigherLogics.Web.Windmill
             name?.CopyTo(output.Content);
             value?.CopyTo(output.Content);
             disabled?.CopyTo(output.Content);
-            checkd.CopyTo(output.Content);
+            checkd?.CopyTo(output.Content);
             readOnly?.CopyTo(output.Content);
             required?.CopyTo(output.Content);
             placeholder?.CopyTo(output.Content);

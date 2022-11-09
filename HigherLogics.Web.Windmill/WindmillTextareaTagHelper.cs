@@ -11,12 +11,16 @@ namespace HigherLogics.Web.Windmill
 {
     public class WindmillTextareaTagHelper : WindmillTagHelper
     {
-        public WindmillTextareaTagHelper() : base("block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray")
+        public WindmillTextareaTagHelper() : base("w-full mt-1 text-sm dark:text-gray-300 form-textarea focus:outline-none")
         {
         }
+
+        public HelpType ValidationState { get; set; }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "textarea";
+            BaseStyles += ValidationState.GetInputValidationClasses();
             base.Process(context, output);
         }
     }

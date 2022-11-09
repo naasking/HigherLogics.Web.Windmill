@@ -1,0 +1,91 @@
+﻿@model GlobalViewModel
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
+}
+    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        Forms
+    </h2>
+    <!-- CTA -->
+    <a class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
+    href="https://github.com/estevanmaito/windmill-dashboard">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2"
+                fill="currentColor"
+                viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
+            <span>Star this project on GitHub</span>
+        </div>
+        <span>View more &RightArrow;</span>
+    </a>
+
+    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+        Elements
+    </h4>
+    <windmill-card class="px-4 py-3 mb-8 shadow-md dark:bg-gray-800 bg-white">
+        <windmill-label text="Name">
+            <windmill-input type="text" placeholder="Jane Doe" class="mt-1 block" />
+        </windmill-label>
+        <div class="mt-4 text-sm">
+            <span class="text-gray-700 dark:text-gray-400">
+                Account Type
+            </span>
+            <div class="mt-2">
+                <windmill-radio name="accountType" value="personal">Personal</windmill-radio>
+                <windmill-radio name="accountType" value="business" class="ml-6">Business</windmill-radio>
+            </div>
+        </div>
+        <windmill-label class="block mt-4" text="Requested Limit">
+            <windmill-select class="block">
+                <option>$1,000</option>
+                <option>$5,000</option>
+                <option>$10,000</option>
+                <option>$25,000</option>
+            </windmill-select>
+        </windmill-label>
+        <windmill-label class="block mt-4" text="Requested Limit">
+            <windmill-select class="block" multiple="true">
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                  <option>Option 4</option>
+                  <option>Option 5</option>
+            </windmill-select>
+        </windmill-label>
+        <windmill-label class="block mt-4" text="Message">
+            <windmill-textarea class="block" rows="3" placeholder="Enter some long form content."></windmill-textarea>
+        </windmill-label>
+        <div class="flex mt-6 text-sm">
+            <windmill-checkbox>I agree to the <span class="underline">privacy policy</span>
+            </windmill-checkbox>
+        </div>
+    </windmill-card>
+
+    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+        Validation
+    </h4>
+    <windmill-card class="px-4 py-3 mb-8 shadow-md dark:bg-gray-800 bg-white">
+        <windmill-label text="Invalid input" class="block">
+            <windmill-input type="text" placeholder="Jane Doe" class="block mt-1" validation-state="Error" />
+            <windmill-help visible="true" type="Error">Your password is too short.</windmill-help>
+        </windmill-label>
+
+        <windmill-label text="Valid input" class="block mt-4">
+            <windmill-input type="text" placeholder="Jane Doe" validation-state="Valid" class="block mt-1" />
+            <windmill-help visible="true" type="Valid">Your password is strong.</windmill-help>
+        </windmill-label>
+
+        <windmill-label text="Helper text" class="block mt-4">
+            <windmill-input type="text" placeholder="Jane Doe" validation-state="Notice" class="block mt-1" />
+            <windmill-help visible="true" type="Notice">Your password must be at least 6 characters long.</windmill-help>
+        </windmill-label>
+    </windmill-card>
+
+    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+        Icons
+    </h4>
+    <windmill-card class="px-4 py-3 mb-8 shadow-md dark:bg-gray-800 bg-white">
+        <windmill-label text="Icon left" class="block">
+
+        </windmill-label>
+    </windmill-card>

@@ -18,7 +18,7 @@ namespace HigherLogics.Web.Windmill
         /// <summary>
         /// The input provided is valid.
         /// </summary>
-        InputOK,
+        Valid,
         /// <summary>
         /// The input provided is not valid.
         /// </summary>
@@ -55,7 +55,7 @@ namespace HigherLogics.Web.Windmill
                     case HelpType.Notice:
                         BaseStyles = "text-xs text-gray-600 dark:text-gray-400";
                         break;
-                    case HelpType.InputOK:
+                    case HelpType.Valid:
                         BaseStyles = "text-xs text-green-600 dark:text-green-400";
                         break;
                     case HelpType.Error:

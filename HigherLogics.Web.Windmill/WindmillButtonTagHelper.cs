@@ -99,7 +99,6 @@ namespace HigherLogics.Web.Windmill
                 case ButtonKind.Secondary when Disabled:
                     return "text-gray-700 border-gray-300 dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray text-white bg-purple-600 cursor-not-allowed opacity-50 border-gray-300";
                 case ButtonKind.Secondary when !Disabled:
-                    //text-gray-700 border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray
                     return "text-gray-700 border-gray-300 dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray border-gray-300";
                 default:
                     throw new NotSupportedException($"Unrecognized button kind: {Kind}");

@@ -16,6 +16,8 @@ namespace HigherLogics.Web.Windmill
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            //FIXME: maybe add validation state from inputs?
+
             output.TagName = null;
             base.Process(context, output);
 

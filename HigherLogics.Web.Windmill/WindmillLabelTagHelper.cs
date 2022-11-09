@@ -11,7 +11,7 @@ namespace HigherLogics.Web.Windmill
 {
     public class WindmillLabelTagHelper : WindmillTagHelper
     {
-        public WindmillLabelTagHelper() : base("text-sm block")
+        public WindmillLabelTagHelper() : base("text-sm")
         {
         }
 

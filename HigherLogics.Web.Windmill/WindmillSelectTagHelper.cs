@@ -11,17 +11,22 @@ namespace HigherLogics.Web.Windmill
 {
     public class WindmillSelectTagHelper : WindmillTagHelper
     {
-        public WindmillSelectTagHelper() : base("text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray")
+        public WindmillSelectTagHelper() : base("w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray")
         {
         }
+        public bool Multiple { get; set; }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "select";
-            var multiple = output.Attributes.TryGetAttribute("multiple", out _);
-            if (multiple)
+            if (Multiple)
+            {
                 BaseStyles += " form-multiselect";
+                output.Attributes.Add("multiple", "");
+            }
             else
+            {
                 BaseStyles += " form-select";
+            }
             base.Process(context, output);
         }
     }
