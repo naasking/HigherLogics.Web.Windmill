@@ -66,7 +66,7 @@ namespace HigherLogics.Web.Windmill
             // From Windmill docs:
             // For disabled buttons ADD these classes: opacity-50 cursor-not-allowed
             // And REMOVE these classes: active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple
-            BaseStyles = $"font-medium leading-5 transition-colors border border-transparent duration-150 focus:outline-none{(Disabled?" cursor-not-allowed opacity-50": " active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple")}{GetSizeClasses()}";
+            BaseStyles = $"text-white bg-purple-600 font-medium leading-5 transition-colors border border-transparent duration-150 focus:outline-none{(Disabled?" cursor-not-allowed opacity-50": " active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple")}{GetSizeClasses()}";
             base.Process(context, output);
         }
 
