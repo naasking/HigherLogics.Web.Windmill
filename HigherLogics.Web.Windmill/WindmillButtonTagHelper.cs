@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Text.Encodings.Web;
+using System.Drawing;
 
 namespace HigherLogics.Web.Windmill
 {
@@ -39,6 +40,18 @@ namespace HigherLogics.Web.Windmill
         Right,
     }
 
+    public enum ButtonKind
+    {
+        /// <summary>
+        /// Primary colours.
+        /// </summary>
+        Primary,
+        /// <summary>
+        /// Secondary colours.
+        /// </summary>
+        Secondary,
+    }
+
     public class WindmillButtonTagHelper : WindmillTagHelper
     {
         public WindmillButtonTagHelper() : base("")
@@ -60,14 +73,37 @@ namespace HigherLogics.Web.Windmill
         /// </summary>
         public InputGroup InputGroup { get; set; }
 
+        /// <summary>
+        /// The kind of button to render.
+        /// </summary>
+        public ButtonKind Kind { get; set; }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "button";
             // From Windmill docs:
             // For disabled buttons ADD these classes: opacity-50 cursor-not-allowed
             // And REMOVE these classes: active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple
-            BaseStyles = $"text-white bg-purple-600 font-medium leading-5 transition-colors border border-transparent duration-150 focus:outline-none{(Disabled?" cursor-not-allowed opacity-50": " active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple")}{GetSizeClasses()}";
+            BaseStyles = "font-medium leading-5 transition-colors duration-150 focus:outline-none border " + GetColours() + GetSizeClasses();
             base.Process(context, output);
+        }
+
+        string GetColours()
+        {
+            switch (Kind)
+            {
+                case ButtonKind.Primary when Disabled:
+                    return "text-white bg-purple-600 cursor-not-allowed opacity-50 border-transparent";
+                case ButtonKind.Primary when !Disabled:
+                    return "text-white bg-purple-600 active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple border-transparent";
+                case ButtonKind.Secondary when Disabled:
+                    return "text-gray-700 border-gray-300 dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray text-white bg-purple-600 cursor-not-allowed opacity-50 border-gray-300";
+                case ButtonKind.Secondary when !Disabled:
+                    //text-gray-700 border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray
+                    return "text-gray-700 border-gray-300 dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray border-gray-300";
+                default:
+                    throw new NotSupportedException($"Unrecognized button kind: {Kind}");
+            }
         }
 
         string GetSizeClasses()
