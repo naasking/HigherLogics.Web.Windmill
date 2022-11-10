@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// A table element.
+    /// </summary>
     public class WindmillTableTagHelper : WindmillTagHelper
     {
         public WindmillTableTagHelper() : base("w-full whitespace-no-wrap")

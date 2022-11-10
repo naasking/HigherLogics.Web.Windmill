@@ -5,6 +5,9 @@ using HigherLogics.Web.Chartjs;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// Element used to display a chart.
+    /// </summary>
     public class WindmillChartTagHelper : WindmillTagHelper
     {
         public WindmillChartTagHelper() : base("chartjs-render-monitor")

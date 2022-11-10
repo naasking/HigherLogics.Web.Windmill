@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// A select input.
+    /// </summary>
     public class WindmillSelectTagHelper : WindmillTagHelper
     {
         public WindmillSelectTagHelper() : base("w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray")

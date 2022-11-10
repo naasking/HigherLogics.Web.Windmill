@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// Defines a modal.
+    /// </summary>
     public class WindmillModalTagHelper : WindmillTagHelper
     {
         public WindmillModalTagHelper() : base("fixed inset-0 z-30 sm:items-center sm:justify-center flex items-end bg-black bg-opacity-50")

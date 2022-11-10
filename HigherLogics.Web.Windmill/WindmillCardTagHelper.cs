@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// A card. The padding and shadow are left unset.
+    /// </summary>
     public class WindmillCardTagHelper : WindmillTagHelper
     {
         public WindmillCardTagHelper() : base("rounded-lg shadow-xs")

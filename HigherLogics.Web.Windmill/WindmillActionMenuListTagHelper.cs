@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// The list of elements in a menu in the action header.
+    /// </summary>
     public class WindmillActionMenuListTagHelper : WindmillTagHelper
     {
         public WindmillActionMenuListTagHelper() : base("absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700")

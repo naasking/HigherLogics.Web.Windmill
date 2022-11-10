@@ -10,29 +10,27 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace HigherLogics.Web.Windmill
 {
     /// <summary>
-    /// The main body content.
+    /// An icon that will be inset into a input.
     /// </summary>
-    public class WindmillMainTagHelper : WindmillTagHelper
+    public class WindmillInputIconTagHelper : WindmillTagHelper
     {
-        public WindmillMainTagHelper() : base("h-full pb-16 overflow-y-auto")
+        public WindmillInputIconTagHelper() : base("absolute inset-y-0 flex items-center pointer-events-none")
         {
         }
 
         /// <summary>
-        /// True if you want a truly blank slate, false if you want the default container.
+        /// The grouping layout.
         /// </summary>
-        public bool Blank { get; set; }
+        public GroupLayout Layout { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            output.TagName = "main";
+            output.TagName = "div";
+            if (Layout == GroupLayout.Left)
+                BaseStyles += " ml-3";
+            else if (Layout == GroupLayout.Right)
+                BaseStyles += " mr-3 right-0";
             base.Process(context, output);
-
-            if (!Blank)
-            {
-                output.PreContent.AppendHtmlLine(@"<div class=""container px-6 mx-auto grid"">");
-                output.PostContent.AppendHtmlLine("</div>");
-            }
         }
     }
 }

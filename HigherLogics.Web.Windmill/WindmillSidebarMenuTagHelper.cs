@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace HigherLogics.Web.Windmill
 {
     /// <summary>
-    /// A sidebar item that is also a menu.
+    /// A sidebar item that is collapsable menu containing a list of other items.
     /// </summary>
     public class WindmillSidebarMenuTagHelper : WindmillTagHelper
     {

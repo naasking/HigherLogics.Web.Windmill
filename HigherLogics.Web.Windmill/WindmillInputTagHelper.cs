@@ -9,15 +9,24 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// An input element.
+    /// </summary>
     public class WindmillInputTagHelper : WindmillTagHelper
     {
         public WindmillInputTagHelper() : base("w-full text-sm focus:outline-none form-input dark:text-gray-300")
         {
         }
-
+        
+        /// <summary>
+        /// The input type.
+        /// </summary>
         public string? Type { get; set; }
 
-        public HelpType ValidationState { get; set; }
+        /// <summary>
+        /// The validation state.
+        /// </summary>
+        public ValidationType ValidationState { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

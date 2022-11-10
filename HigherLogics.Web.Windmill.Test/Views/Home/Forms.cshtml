@@ -86,6 +86,56 @@
     </h4>
     <windmill-card class="px-4 py-3 mb-8 shadow-md dark:bg-gray-800 bg-white">
         <windmill-label text="Icon left" class="block">
+            <windmill-input-group group-type="Icon">
+                <windmill-input-icon layout="Left">
+                    <svg class="w-5 h-5"
+                     aria-hidden="true"
+                     fill="none"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     stroke-width="2"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </windmill-input-icon>
+                <windmill-input placeholder="Jane Doe" class="pl-10 text-black mt-1" />
+            </windmill-input-group>
+        </windmill-label>
+        <windmill-label text="Icon right" class="block mt-4">
+            <windmill-input-group group-type="Icon">
+                <windmill-input-icon layout="Right">
+                    <svg class="w-5 h-5"
+                     aria-hidden="true"
+                     fill="none"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     stroke-width="2"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </windmill-input-icon>
+                <windmill-input placeholder="Jane Doe" class="pr-10 text-black mt-1" />
+            </windmill-input-group>
+        </windmill-label>
+    </windmill-card>
 
+    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+        Buttons
+    </h4>
+    <windmill-card class="px-4 py-3 mb-8 shadow-md dark:bg-gray-800 bg-white">
+        <windmill-label class="block" text="Button left">
+            <windmill-input-group>
+                <!-- same margins on top/bottom -->
+                <windmill-button layout="Left" class="mt-1">Click</windmill-button>
+                <windmill-input placeholder="Jane Doe" class="pl-20 mt-1 text-black" />
+            </windmill-input-group>
+        </windmill-label>
+        <windmill-label class="mt-4 block" text="Button right">
+            <windmill-input-group>
+                <windmill-input placeholder="Jane Doe" class="pr-20 mt-1 text-black" />
+                <windmill-button layout="Right" class="mt-1">Click</windmill-button>
+            </windmill-input-group>
         </windmill-label>
     </windmill-card>

@@ -9,11 +9,15 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// The list for a sidebar menu.
+    /// </summary>
     public class WindmillSidebarMenuListTagHelper : WindmillTagHelper
     {
         public WindmillSidebarMenuListTagHelper() : base("")
         {
         }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "template";

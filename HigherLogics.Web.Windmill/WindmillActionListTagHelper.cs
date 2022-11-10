@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// The list of actions that appears in the header.
+    /// </summary>
     public class WindmillActionListTagHelper : WindmillTagHelper
     {
         public WindmillActionListTagHelper() : base("flex items-center flex-shrink-0 space-x-6")

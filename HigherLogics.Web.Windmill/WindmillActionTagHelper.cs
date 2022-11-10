@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// An item that appears in the action header.
+    /// </summary>
     public class WindmillActionTagHelper : WindmillTagHelper
     {
         public WindmillActionTagHelper() : base("")

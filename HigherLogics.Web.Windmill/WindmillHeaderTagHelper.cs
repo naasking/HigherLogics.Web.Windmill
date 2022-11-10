@@ -9,11 +9,15 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// The header that shows at the top of the screen.
+    /// </summary>
     public class WindmillHeaderTagHelper : WindmillTagHelper
     {
         public WindmillHeaderTagHelper() : base("z-10 py-4 bg-white shadow-md dark:bg-gray-800")
         {
         }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "header";

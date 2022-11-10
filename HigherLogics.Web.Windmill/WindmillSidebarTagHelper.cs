@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace HigherLogics.Web.Windmill
 {
     /// <summary>
-    /// A tag helper for constructing a sidebar.
+    /// A container for the sidebar items.
     /// </summary>
     public class WindmillSidebarTagHelper : WindmillTagHelper
     {

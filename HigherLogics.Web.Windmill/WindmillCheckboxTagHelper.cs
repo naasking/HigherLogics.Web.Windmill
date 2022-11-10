@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// A checkbox input.
+    /// </summary>
     public class WindmillCheckboxTagHelper : WindmillTagHelper
     {
         public WindmillCheckboxTagHelper() : base("flex items-center dark:text-gray-400")

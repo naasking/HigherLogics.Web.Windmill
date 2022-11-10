@@ -9,13 +9,19 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// A textarea element.
+    /// </summary>
     public class WindmillTextareaTagHelper : WindmillTagHelper
     {
         public WindmillTextareaTagHelper() : base("w-full mt-1 text-sm dark:text-gray-300 form-textarea focus:outline-none")
         {
         }
 
-        public HelpType ValidationState { get; set; }
+        /// <summary>
+        /// The current validation state of this item.
+        /// </summary>
+        public ValidationType ValidationState { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

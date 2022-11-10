@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// A clickable element to toggle the theme.
+    /// </summary>
     public class WindmillToggleThemeTagHelper : WindmillTagHelper
     {
         public WindmillToggleThemeTagHelper() : base("rounded-md focus:outline-none focus:shadow-outline-purple")

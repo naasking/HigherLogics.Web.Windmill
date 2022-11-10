@@ -9,11 +9,15 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// The search input that shows in the top header.
+    /// </summary>
     public class WindmillSearchTagHelper : WindmillTagHelper
     {
         public WindmillSearchTagHelper() : base("flex justify-center flex-1 lg:mr-32")
         {
         }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             //FIXME: maybe add validation state from inputs?

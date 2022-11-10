@@ -9,6 +9,9 @@ using System.Text.Encodings.Web;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// Base class for all windmill tag helpers.
+    /// </summary>
     public abstract class WindmillTagHelper : TagHelper
     {
         protected WindmillTagHelper(string baseStyles)

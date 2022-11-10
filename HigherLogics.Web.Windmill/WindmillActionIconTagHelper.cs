@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// An icon that appears in the action header.
+    /// </summary>
     public class WindmillActionIconTagHelper : WindmillTagHelper
     {
         public WindmillActionIconTagHelper() : base("relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple")

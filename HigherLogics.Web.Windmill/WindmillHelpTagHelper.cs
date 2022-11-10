@@ -9,22 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
-    public enum HelpType
-    {
-        /// <summary>
-        /// Provide the user with guidance, ie. your password must be at least X characters long.
-        /// </summary>
-        Notice,
-        /// <summary>
-        /// The input provided is valid.
-        /// </summary>
-        Valid,
-        /// <summary>
-        /// The input provided is not valid.
-        /// </summary>
-        Error,
-    }
-
+    /// <summary>
+    /// A feedback note.
+    /// </summary>
     public class WindmillHelpTagHelper : WindmillTagHelper
     {
         public WindmillHelpTagHelper() : base("")
@@ -39,7 +26,7 @@ namespace HigherLogics.Web.Windmill
         /// <summary>
         /// The type of feedback being provided.
         /// </summary>
-        public HelpType Type { get; set; }
+        public ValidationType Type { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -52,13 +39,13 @@ namespace HigherLogics.Web.Windmill
                 output.TagName = "span";
                 switch (Type)
                 {
-                    case HelpType.Notice:
+                    case ValidationType.Notice:
                         BaseStyles = "text-xs text-gray-600 dark:text-gray-400";
                         break;
-                    case HelpType.Valid:
+                    case ValidationType.Valid:
                         BaseStyles = "text-xs text-green-600 dark:text-green-400";
                         break;
-                    case HelpType.Error:
+                    case ValidationType.Error:
                         BaseStyles = "text-xs text-red-600 dark:text-red-400";
                         break;
                 }

@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// A menu that appears in the action header.
+    /// </summary>
     public class WindmillActionMenuLinkTagHelper : WindmillTagHelper
     {
         public WindmillActionMenuLinkTagHelper() : base("flex")

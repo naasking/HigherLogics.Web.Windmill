@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// A label element associated with a form input.
+    /// </summary>
     public class WindmillLabelTagHelper : WindmillTagHelper
     {
         public WindmillLabelTagHelper() : base("text-sm")

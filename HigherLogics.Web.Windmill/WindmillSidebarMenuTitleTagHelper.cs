@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// The clickable element that expands and collapses a menu in the sidebar.
+    /// </summary>
     public class WindmillSidebarMenuTitleTagHelper : WindmillTagHelper
     {
         public WindmillSidebarMenuTitleTagHelper() : base("inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200")

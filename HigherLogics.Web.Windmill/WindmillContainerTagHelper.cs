@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// The container for a windmill user interface.
+    /// </summary>
     public class WindmillContainerTagHelper : WindmillTagHelper
     {
         public WindmillContainerTagHelper() : base("flex h-screen bg-gray-50 dark:bg-gray-900")

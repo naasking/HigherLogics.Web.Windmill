@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    /// <summary>
+    /// A radio input.
+    /// </summary>
     public class WindmillRadioTagHelper : WindmillTagHelper
     {
         public WindmillRadioTagHelper() : base("inline-flex items-center text-gray-600 dark:text-gray-400")

@@ -22,24 +22,8 @@ namespace HigherLogics.Web.Windmill
     }
 
     /// <summary>
-    /// Flags a button as part of an input group.
+    /// The button type that specifies its colouring.
     /// </summary>
-    public enum InputGroup
-    {
-        /// <summary>
-        /// Button is not part of an input group.
-        /// </summary>
-        None,
-        /// <summary>
-        /// Button is on the left side of an input group.
-        /// </summary>
-        Left,
-        /// <summary>
-        /// Button is on the right side of an input group.
-        /// </summary>
-        Right,
-    }
-
     public enum ButtonKind
     {
         /// <summary>
@@ -50,8 +34,13 @@ namespace HigherLogics.Web.Windmill
         /// Secondary colours.
         /// </summary>
         Secondary,
+
+        //FIXME: maybe add warning or danger?
     }
 
+    /// <summary>
+    /// A button element.
+    /// </summary>
     public class WindmillButtonTagHelper : WindmillTagHelper
     {
         public WindmillButtonTagHelper() : base("")
@@ -71,7 +60,7 @@ namespace HigherLogics.Web.Windmill
         /// <summary>
         /// Change the stying if this button belongs to an input group.
         /// </summary>
-        public InputGroup InputGroup { get; set; }
+        public GroupLayout Layout { get; set; }
 
         /// <summary>
         /// The kind of button to render.
@@ -109,29 +98,29 @@ namespace HigherLogics.Web.Windmill
         {
             switch (Size)
             {
-                case ButtonSize.Regular when InputGroup == InputGroup.None:
+                case ButtonSize.Regular when Layout == GroupLayout.None:
                     return " px-4 py-2 text-sm rounded-lg";
-                case ButtonSize.Regular when InputGroup == InputGroup.Left:
+                case ButtonSize.Regular when Layout == GroupLayout.Left:
                     return " px-4 py-2 text-sm rounded-l-lg absolute inset-y-0";
-                case ButtonSize.Regular when InputGroup == InputGroup.Right:
+                case ButtonSize.Regular when Layout == GroupLayout.Right:
                     return " px-4 py-2 text-sm rounded-r-lg absolute inset-y-0 right-0";
-                case ButtonSize.Small when InputGroup == InputGroup.None:
+                case ButtonSize.Small when Layout == GroupLayout.None:
                     return " px-3 py-1 text-sm rounded-md";
-                case ButtonSize.Small when InputGroup == InputGroup.Left:
+                case ButtonSize.Small when Layout == GroupLayout.Left:
                     return " px-3 py-1 text-sm rounded-l-md absolute inset-y-0";
-                case ButtonSize.Small when InputGroup == InputGroup.Right:
+                case ButtonSize.Small when Layout == GroupLayout.Right:
                     return " px-3 py-1 text-sm rounded-r-md absolute inset-y-0 right-0";
-                case ButtonSize.Large when InputGroup == InputGroup.None:
+                case ButtonSize.Large when Layout == GroupLayout.None:
                     return " px-5 py-3 rounded-lg";
-                case ButtonSize.Large when InputGroup == InputGroup.Left:
+                case ButtonSize.Large when Layout == GroupLayout.Left:
                     return " px-5 py-3 rounded-l-lg absolute inset-y-0";
-                case ButtonSize.Large when InputGroup == InputGroup.Right:
+                case ButtonSize.Large when Layout == GroupLayout.Right:
                     return " px-5 py-3 rounded-r-lg absolute inset-y-0 right-0";
-                case ButtonSize.Larger when InputGroup == InputGroup.None:
+                case ButtonSize.Larger when Layout == GroupLayout.None:
                     return " px-10 py-4 rounded-lg";
-                case ButtonSize.Larger when InputGroup == InputGroup.Left:
+                case ButtonSize.Larger when Layout == GroupLayout.Left:
                     return " px-10 py-4 rounded-l-lg absolute inset-y-0";
-                case ButtonSize.Larger when InputGroup == InputGroup.Right:
+                case ButtonSize.Larger when Layout == GroupLayout.Right:
                     return " px-10 py-4 rounded-r-lg absolute inset-y-0 right-0";
                 default:
                     throw new NotSupportedException($"Unrecognized ButtonSize: {Size}");
