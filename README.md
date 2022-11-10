@@ -5,7 +5,7 @@ This is an experimental library that provides a simpler interface to using the e
 https://github.com/estevanmaito/windmill-dashboard
 
 Getting used to and remembering all of the atomic styles to apply to various elements and how the
-HTML should be structured can hard, especially if you're new to atomic CSS and tailwind, so this
+HTML should be structured can be hard, especially if you're new to atomic CSS and tailwind, so this
 library provides tag helpers that apply the base styles to the basic elements, and provide
 elements that are hopefully easier to remember and use.
 
