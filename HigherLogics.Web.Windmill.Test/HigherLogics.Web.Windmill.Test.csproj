@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Chartjs\HigherLogics.Web.Chartjs.csproj" />
+    <ProjectReference Include="..\..\HigherLogics.Web.Chartjs\HigherLogics.Web.Chartjs\HigherLogics.Web.Chartjs.csproj" />
     <ProjectReference Include="..\HigherLogics.Web.Windmill\HigherLogics.Web.Windmill.csproj" />
   </ItemGroup>
 

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HigherLogics.Web.Windmill",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HigherLogics.Web.Windmill.Test", "HigherLogics.Web.Windmill.Test\HigherLogics.Web.Windmill.Test.csproj", "{BEA2C057-AD0F-482B-ADB4-E773B6BAE760}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HigherLogics.Web.Chartjs", "..\HigherLogics.Web.Chartjs\HigherLogics.Web.Chartjs.csproj", "{74BF53F1-B852-40DD-9886-C9B8DE4D006D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HigherLogics.Web.Chartjs", "..\HigherLogics.Web.Chartjs\HigherLogics.Web.Chartjs\HigherLogics.Web.Chartjs.csproj", "{74BF53F1-B852-40DD-9886-C9B8DE4D006D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
