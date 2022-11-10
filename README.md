@@ -52,7 +52,11 @@ You can instead write this simpler markup:
         </windmill-input-group>
     </windmill-label>
 
-I'm not sure if this is the best way to accomplish this, so this is a bit of an experiment.
+All of the default styling is applied automatically by the tag helpers so you don't need to remember the long atomic CSS
+incantations, and you can focus only on the content and minor style tweaks.
+
+I'm not sure if tag helpers are the best way to accomplish this, so this is a bit of an experiment. It seemed like
+the easiest way to parameterize styling and other behaviours.
 
 # Future Work
 
