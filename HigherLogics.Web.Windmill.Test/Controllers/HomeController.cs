@@ -23,32 +23,32 @@ namespace HigherLogics.Web.Windmill.Test.Controllers
 
         public IActionResult Forms()
         {
-            return View(new GlobalViewModel { Page = "Forms" });
+            return View(new GlobalViewModel("Forms"));
         }
 
         public IActionResult Cards()
         {
-            return View(new GlobalViewModel { Page = "Cards" });
+            return View(new GlobalViewModel("Cards"));
         }
 
         public IActionResult Buttons()
         {
-            return View(new GlobalViewModel { Page = "Buttons" });
+            return View(new GlobalViewModel("Buttons"));
         }
 
         public IActionResult Modals()
         {
-            return View(new GlobalViewModel { Page = "Modals" });
+            return View(new GlobalViewModel("Modals"));
         }
 
         public IActionResult Tables()
         {
-            return View(new GlobalViewModel { Page = "Tables" });
+            return View(new TableViewModel());
         }
 
         public IActionResult Pages()
         {
-            return View(new GlobalViewModel { Page = "Pages" });
+            return View(new GlobalViewModel("Pages"));
         }
 
         public IActionResult Charts()
@@ -152,22 +152,22 @@ namespace HigherLogics.Web.Windmill.Test.Controllers
 
         public IActionResult Login()
         {
-            return View(new GlobalViewModel { Page = "Login" });
+            return View(new GlobalViewModel("Login"));
         }
 
         public IActionResult CreateAccount()
         {
-            return View(new GlobalViewModel { Page = "CreateAccount" });
+            return View(new GlobalViewModel("CreateAccount"));
         }
 
         public IActionResult ForgotPassword()
         {
-            return View(new GlobalViewModel { Page = "ForgotPassword" });
+            return View(new GlobalViewModel("ForgotPassword"));
         }
 
         public IActionResult Blank()
         {
-            return View(new GlobalViewModel { Page = "Blank" });
+            return View(new GlobalViewModel("Blank"));
         }
     }
 }

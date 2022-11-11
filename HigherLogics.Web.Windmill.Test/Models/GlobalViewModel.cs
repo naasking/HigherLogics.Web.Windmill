@@ -2,6 +2,10 @@
 {
     public class GlobalViewModel
     {
+        public GlobalViewModel(string page)
+        {
+            Page = page;
+        }
         public string Page { get; set; }
     }
 }
