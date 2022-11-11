@@ -35,6 +35,11 @@ namespace HigherLogics.Web.Windmill
         /// </summary>
         Secondary,
 
+        /// <summary>
+        /// Danger colours.
+        /// </summary>
+        Danger,
+
         //FIXME: maybe add warning or danger?
     }
 
@@ -89,6 +94,10 @@ namespace HigherLogics.Web.Windmill
                     return "text-gray-700 border-gray-300 dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray text-white bg-purple-600 cursor-not-allowed opacity-50 border-gray-300";
                 case ButtonKind.Secondary when !Disabled:
                     return "text-gray-700 border-gray-300 dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray border-gray-300";
+                case ButtonKind.Danger when Disabled:
+                    return "text-white bg-red-600 cursor-not-allowed opacity-50 border-transparent";
+                case ButtonKind.Danger when !Disabled:
+                    return "text-white bg-red-600 active:bg-red-600 hover:bg-red-700 focus:shadow-outline-red border-transparent";
                 default:
                     throw new NotSupportedException($"Unrecognized button kind: {Kind}");
             }
