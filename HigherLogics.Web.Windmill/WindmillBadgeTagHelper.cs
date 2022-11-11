@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -9,17 +10,16 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace HigherLogics.Web.Windmill
 {
     /// <summary>
-    /// A table element.
+    /// A card. The padding and shadow are left unset.
     /// </summary>
-    public class WindmillTableTagHelper : WindmillTagHelper
+    public class WindmillBadgeTagHelper : WindmillTagHelper
     {
-        public WindmillTableTagHelper() : base("w-full mb-8 overflow-hidden rounded-lg shadow-xs")
+        public WindmillBadgeTagHelper() : base("font-semibold leading-tight rounded-full")
         {
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-
-            output.TagName = "div";
+            output.TagName = "span";
             base.Process(context, output);
         }
     }

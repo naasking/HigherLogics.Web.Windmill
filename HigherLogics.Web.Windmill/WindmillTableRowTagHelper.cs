@@ -9,17 +9,16 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace HigherLogics.Web.Windmill
 {
     /// <summary>
-    /// A table element.
+    /// A table row element.
     /// </summary>
-    public class WindmillTableTagHelper : WindmillTagHelper
+    public class WindmillTableRowTagHelper : WindmillTagHelper
     {
-        public WindmillTableTagHelper() : base("w-full mb-8 overflow-hidden rounded-lg shadow-xs")
+        public WindmillTableRowTagHelper() : base("text-gray-700 dark:text-gray-400")
         {
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-
-            output.TagName = "div";
+            output.TagName = "tr";
             base.Process(context, output);
         }
     }

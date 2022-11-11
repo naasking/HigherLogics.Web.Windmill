@@ -9,18 +9,19 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace HigherLogics.Web.Windmill
 {
     /// <summary>
-    /// A table element.
+    /// A table body element.
     /// </summary>
-    public class WindmillTableTagHelper : WindmillTagHelper
+    public class WindmillTableBodyTagHelper : WindmillTagHelper
     {
-        public WindmillTableTagHelper() : base("w-full mb-8 overflow-hidden rounded-lg shadow-xs")
+        public WindmillTableBodyTagHelper() : base("bg-white divide-y dark:divide-gray-700 dark:bg-gray-800")
         {
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-
-            output.TagName = "div";
+            output.TagName = "tbody";
             base.Process(context, output);
+
+            output.PostContent.AppendHtmlLine("</table>");
         }
     }
 }

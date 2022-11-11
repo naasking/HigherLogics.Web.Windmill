@@ -14,7 +14,7 @@ namespace HigherLogics.Web.Windmill
     /// </summary>
     public class WindmillPagerTagHelper : WindmillTagHelper
     {
-        public WindmillPagerTagHelper() : base("grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800")
+        public WindmillPagerTagHelper() : base("grid text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800")
         {
         }
 
@@ -28,7 +28,7 @@ namespace HigherLogics.Web.Windmill
             base.Process(context, output);
 
             var itemsStart = 1 + PageIndex * ItemsPerPage;
-            var itemsEnd = ItemCount / ItemsPerPage + ItemCount % ItemsPerPage;
+            var itemsEnd = ItemsPerPage == 0 ? 1 : (1 + PageIndex) * ItemCount / ItemsPerPage + ItemCount % ItemsPerPage;
             output.PreContent.AppendHtml($@"<span class=""flex items-center col-span-3"">Showing {itemsStart}-{itemsEnd} of {ItemCount}</span>
 <span class=""col-span-2""></span>
 <span class=""flex col-span-4 mt-2 sm:mt-auto sm:justify-end"">
