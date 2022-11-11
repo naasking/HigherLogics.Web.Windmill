@@ -41,7 +41,7 @@ namespace HigherLogics.Web.Windmill.Test.Controllers
             return View(new GlobalViewModel("Modals"));
         }
 
-        static IEnumerable<Client> users = new[]
+        static IEnumerable<Client> clients = new[]
         {
             new Client("Hans Burger", "10x Developer", 863.45M, ClientStatus.Approved, new DateTime(2020, 10, 6), "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"),
             new Client("Jolina Angelie", "Unemployed", 369.95M, ClientStatus.Pending, new DateTime(2020, 10, 6), "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"),
@@ -55,7 +55,12 @@ namespace HigherLogics.Web.Windmill.Test.Controllers
 
         public IActionResult Tables()
         {
-            return View(new TableViewModel(users));
+            // massage data to get 100 items total to match demo
+            return View(new TableViewModel(100, 3, 10, clients)
+            {
+                PageIndex = 3,
+                ItemsPerPage = 10,
+            });
         }
 
         public IActionResult Pages()

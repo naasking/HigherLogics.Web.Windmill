@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace HigherLogics.Web.Windmill
 {
+    public enum PagerType { Button, Link, }
+
     /// <summary>
     /// A table pager.
     /// </summary>
@@ -20,21 +22,27 @@ namespace HigherLogics.Web.Windmill
 
         public int ItemCount { get; set; }
         public int ItemsPerPage { get; set; }
-        public int PageIndex { get; set; }
+        public int CurrentPage { get; set; }
+        public PagerType Type { get; set; }
+        /// <summary>
+        /// Generate a link for the given page.
+        /// </summary>
+        public Func<int, string>? GetLink { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "div";
             base.Process(context, output);
 
-            var itemsStart = 1 + PageIndex * ItemsPerPage;
-            var itemsEnd = ItemsPerPage == 0 ? 1 : (1 + PageIndex) * ItemCount / ItemsPerPage + ItemCount % ItemsPerPage;
+            var itemsStart = 1 + CurrentPage * ItemsPerPage;
+            var itemsEnd = ItemsPerPage == 0 ? 1 : (1 + CurrentPage) * ItemCount / ItemsPerPage + ItemCount % ItemsPerPage;
+
             output.PreContent.AppendHtml($@"<span class=""flex items-center col-span-3"">Showing {itemsStart}-{itemsEnd} of {ItemCount}</span>
 <span class=""col-span-2""></span>
 <span class=""flex col-span-4 mt-2 sm:mt-auto sm:justify-end"">
-    <nav aria-label=""Table navigation"">");
+    <nav aria-label=""Table navigation""><ul class=""inline-flex items-center"">");
 
-            output.PostContent.AppendHtml($@"</nav></span>");
+            output.PostContent.AppendHtml($@"</ul></nav></span>");
         }
     }
 }

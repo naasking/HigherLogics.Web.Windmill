@@ -5,11 +5,22 @@ namespace HigherLogics.Web.Windmill.Test.Models
 {
     public class TableViewModel : GlobalViewModel
     {
-        public TableViewModel(IEnumerable<Client> users) : base("Tables")
+        public TableViewModel(int itemCount, int pageIndex, int itemsPerPage, IEnumerable<Client> clients) : base("Tables")
         {
-            Users = users;
+            Clients = clients;
+            ItemCount = itemCount;
+            PageIndex = pageIndex;
+            ItemsPerPage = itemsPerPage;
         }
-        public IEnumerable<Client> Users { get; set; }
+        public IEnumerable<Client> Clients { get; set; }
+        public int ItemCount { get; set; }
+        public int PageIndex { get; set; }
+        public int ItemsPerPage { get; set; }
+
+        public int GetPageCount()
+        {
+            return ItemCount / ItemsPerPage + ItemCount % ItemsPerPage;
+        }
 
         public string GetColour(ClientStatus status)
         {
