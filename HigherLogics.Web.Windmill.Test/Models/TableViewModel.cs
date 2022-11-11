@@ -5,16 +5,16 @@ namespace HigherLogics.Web.Windmill.Test.Models
 {
     public class TableViewModel : GlobalViewModel
     {
-        public TableViewModel(int itemCount, int pageIndex, int itemsPerPage, IEnumerable<Client> clients) : base("Tables")
+        public TableViewModel(int itemCount, int currentPage, int itemsPerPage, IEnumerable<Client> clients) : base("Tables")
         {
             Clients = clients;
             ItemCount = itemCount;
-            PageIndex = pageIndex;
+            CurrentPage = currentPage;
             ItemsPerPage = itemsPerPage;
         }
         public IEnumerable<Client> Clients { get; set; }
         public int ItemCount { get; set; }
-        public int PageIndex { get; set; }
+        public int CurrentPage { get; set; }
         public int ItemsPerPage { get; set; }
 
         public int GetPageCount()

@@ -58,7 +58,7 @@ namespace HigherLogics.Web.Windmill.Test.Controllers
             // massage data to get 100 items total to match demo
             return View(new TableViewModel(100, 3, 10, clients)
             {
-                PageIndex = 3,
+                CurrentPage = 3,
                 ItemsPerPage = 10,
             });
         }
