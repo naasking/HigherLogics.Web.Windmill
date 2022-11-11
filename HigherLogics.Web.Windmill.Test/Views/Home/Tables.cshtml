@@ -15,6 +15,10 @@
     </div>
     <span>View more &RightArrow;</span>
 </a>
+
+<h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+    Table with avatars
+</h4>
 <windmill-table>
     <windmill-table-header>
         <th class="px-4 py-3">Client</th>
@@ -55,5 +59,76 @@
     <windmill-button-pager class="px-4 py-3" item-count="@Model.ItemCount"
         items-per-page="@Model.ItemsPerPage" current-page="@Model.CurrentPage"
         name="@Html.NameFor(x => Model.CurrentPage)">
+    </windmill-button-pager>
+</windmill-table>
+
+<h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+    Table with actions
+</h4>
+
+<windmill-table>
+    <windmill-table-header>
+        <th class="px-4 py-3">Client</th>
+        <th class="px-4 py-3">Amount</th>
+        <th class="px-4 py-3">Status</th>
+        <th class="px-4 py-3">Date</th>
+        <th class="px-4 py-3">Actions</th>
+    </windmill-table-header>
+    <windmill-table-body>
+        @foreach (var user in Model.Clients)
+        {
+            <windmill-table-row>
+                <td class="px-4 py-3 text-sm">
+                    <div class="flex items-center text-sm">
+                        <!-- Avatar with inset shadow -->
+                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                            <windmill-avatar class="w-full h-full" src="@user.AvatarUrl" loading="lazy" />
+                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                        </div>
+                        <div>
+                            <p class="font-semibold">@user.Name</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                                @user.Role
+                            </p>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-4 py-3 text-sm">
+                    @user.Amount.ToString("C")
+                </td>
+                <td class="px-4 py-3 text-xs">
+                    <windmill-badge class="px-2 py-1 @Model.GetColour(user.Status)">@user.Status</windmill-badge>
+                </td>
+                <td class="px-4 py-3 text-sm">
+                    @user.Date.ToString("MM/dd/yyyy")
+                </td>
+                <td class="px-4 py-3">
+                    <div class="flex items-center space-x-4 text-sm">
+                        <windmill-table-action tag="button">
+                            <svg class="w-5 h-5"
+                             aria-hidden="true"
+                             fill="currentColor"
+                             viewBox="0 0 20 20">
+                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                            </svg>
+                        </windmill-table-action>
+                        <windmill-table-action tag="button">
+                            <svg class="w-5 h-5"
+                             aria-hidden="true"
+                             fill="currentColor"
+                             viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                  clip-rule="evenodd"></path>
+                            </svg>
+                        </windmill-table-action>
+                    </div>
+                </td>
+            </windmill-table-row>
+        }
+    </windmill-table-body>
+    <windmill-button-pager class="px-4 py-3" item-count="@Model.ItemCount"
+                           items-per-page="@Model.ItemsPerPage" current-page="@Model.CurrentPage"
+                           name="@Html.NameFor(x => Model.CurrentPage)">
     </windmill-button-pager>
 </windmill-table>
